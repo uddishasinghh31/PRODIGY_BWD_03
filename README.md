@@ -1,140 +1,341 @@
-# Basic REST API with CRUD Operations
+# 🚀 Spring Boot User Management REST API
 
-A Spring Boot REST API for managing users. The application supports Create, Read, Update, and Delete (CRUD) operations, validates request input, uses UUID identifiers, and stores data in memory with a `HashMap`.
+![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1-green?style=for-the-badge&logo=springboot)
+![MySQL](https://img.shields.io/badge/MySQL-8-blue?style=for-the-badge&logo=mysql)
+![Hibernate](https://img.shields.io/badge/Hibernate-ORM-brown?style=for-the-badge&logo=hibernate)
+![Flyway](https://img.shields.io/badge/Flyway-Migrations-red?style=for-the-badge)
+![JWT](https://img.shields.io/badge/JWT-Authentication-purple?style=for-the-badge)
+![Spring Security](https://img.shields.io/badge/Spring%20Security-Secured-green?style=for-the-badge)
+![Maven](https://img.shields.io/badge/Maven-Build-red?style=for-the-badge&logo=apachemaven)
 
-## Features
+---
 
-- Create, list, retrieve, update, and delete users
-- UUID generated for each user
-- User fields: `id`, `name`, `email`, and `age`
-- In-memory storage with `HashMap<UUID, User>`
-- Request validation for name, email, and age
-- Clear HTTP responses: `201`, `200`, `204`, `400`, and `404`
+## 📖 Project Overview
 
-## Tech Stack
+This project is a **RESTful User Management API** developed using **Spring Boot** as part of my **Prodigy Infotech Internship**.
 
-- Java 21
-- Spring Boot 4.1.0
-- Maven
-- Spring Web MVC
-- Jakarta Bean Validation
-- Postman (API testing)
+The application supports complete CRUD operations along with **JWT-based Authentication & Authorization**, secure password encryption using **BCrypt**, MySQL database integration, Flyway database migrations, request validation, exception handling, and a layered architecture following Spring Boot best practices.
 
-## Project Structure
+---
 
-```text
-src/main/java/com/example/basic_rest_api/
-├── controller/UserController.java          # REST endpoints
-├── dto/UserRequest.java                    # Validated request body
-├── exception/GlobalExceptionHandler.java   # 400 and 404 error responses
-├── exception/UserNotFoundException.java
-├── model/User.java                          # User entity/model
-├── service/UserService.java                 # Business logic and HashMap storage
-└── BasicRestApiApplication.java             # Application entry point
+# ✨ Features
+
+- ✅ Create User
+- ✅ Get All Users
+- ✅ Get User by ID
+- ✅ Update User
+- ✅ Delete User
+- ✅ JWT Authentication
+- ✅ Spring Security
+- ✅ Password Encryption (BCrypt)
+- ✅ Protected REST APIs
+- ✅ Request Validation
+- ✅ Global Exception Handling
+- ✅ MySQL Database
+- ✅ Hibernate ORM
+- ✅ Flyway Database Migration
+- ✅ UUID Primary Keys
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|----------|
+| Java 21 | Programming Language |
+| Spring Boot | Backend Framework |
+| Spring Security | Authentication & Authorization |
+| JWT | Secure Authentication |
+| Hibernate / JPA | ORM |
+| MySQL | Database |
+| Flyway | Database Version Control |
+| Maven | Dependency Management |
+| Postman | API Testing |
+| IntelliJ IDEA | IDE |
+| Git & GitHub | Version Control |
+
+---
+
+# 📂 Project Structure
+
+```
+src
+│
+├── config
+│     └── Security Configuration
+│
+├── controller
+│     ├── AuthController
+│     └── UserController
+│
+├── dto
+│     ├── LoginRequest
+│     ├── UserRequest
+│     └── AuthResponse
+│
+├── exception
+│
+├── model
+│
+├── repository
+│
+├── security
+│     ├── JwtService
+│     ├── JwtAuthenticationFilter
+│     └── CustomUserDetailsService
+│
+├── service
+│
+└── resources
+      ├── application.properties
+      └── db/migration
 ```
 
-## Prerequisites
+---
 
-- JDK 21 or later
-- IntelliJ IDEA (recommended)
-- Postman (optional, for testing)
+# 🏗 Architecture
 
-## Run Locally
-
-1. Clone or download this repository.
-2. Open the `basic-rest-api` folder in IntelliJ IDEA.
-3. Allow Maven to download dependencies.
-4. Run `BasicRestApiApplication` from IntelliJ, or use the command below from the project folder:
-
-```powershell
-.\mvnw.cmd spring-boot:run
+```
+                    Client
+                       │
+                    Postman
+                       │
+                REST Controller
+                       │
+                    Service Layer
+                       │
+                 Repository Layer
+                       │
+              Hibernate (JPA ORM)
+                       │
+                     MySQL
 ```
 
-5. The server starts on:
+---
 
-```text
-http://localhost:8080
+# 🔐 Authentication Flow
+
+```
+Register User
+      │
+      ▼
+Password encrypted using BCrypt
+      │
+      ▼
+Saved into MySQL Database
+      │
+      ▼
+Login
+      │
+      ▼
+JWT Token Generated
+      │
+      ▼
+Client stores Token
+      │
+      ▼
+Bearer Token sent in Header
+      │
+      ▼
+JWT Filter validates Token
+      │
+      ▼
+Protected APIs Accessible
 ```
 
-> The API uses in-memory storage. All users are removed when the application is restarted.
+---
 
-## API Endpoints
+# 📌 API Endpoints
 
-| Method | Endpoint | Description | Success status |
-|---|---|---|---|
-| `POST` | `/api/users` | Create a user | `201 Created` |
-| `GET` | `/api/users` | Get all users | `200 OK` |
-| `GET` | `/api/users/{id}` | Get one user by UUID | `200 OK` |
-| `PUT` | `/api/users/{id}` | Update a user | `200 OK` |
-| `DELETE` | `/api/users/{id}` | Delete a user | `204 No Content` |
+## Authentication APIs
 
-### Request body for create and update
+| Method | Endpoint | Description |
+|----------|----------------|----------------|
+| POST | `/auth/register` | Register User |
+| POST | `/auth/login` | Login User |
+
+---
+
+## User APIs
+
+| Method | Endpoint |
+|----------|----------------|
+| GET | `/api/users` |
+| GET | `/api/users/{id}` |
+| POST | `/api/users` |
+| PUT | `/api/users/{id}` |
+| DELETE | `/api/users/{id}` |
+
+---
+
+# 🧪 API Testing
+
+All APIs were tested successfully using **Postman**.
+
+### Register User
+
+```
+POST /auth/register
+```
+
+### Login
+
+```
+POST /auth/login
+```
+
+Returns
 
 ```json
 {
-  "name": "Ritu Singh",
-  "email": "ritu.kumari@example.com",
-  "age": 44
+  "token":"JWT_TOKEN"
 }
 ```
 
-### Validation and errors
+### Protected Endpoint
 
-| Situation | Status | Example response |
-|---|---|---|
-| Invalid email or missing/invalid input | `400 Bad Request` | `{ "email": "Email must be valid." }` |
-| User UUID does not exist | `404 Not Found` | `{ "error": "User not found with id: ..." }` |
+```
+GET /api/users
+```
 
-## Application Running
+Requires
 
-The Spring Boot server successfully starts on port `8080`.
+```
+Authorization
 
-![Spring Boot server running](docs/screenshots/01-server-running.png)
+Bearer <JWT_TOKEN>
+```
 
-## API Test Evidence
+---
 
-### 1. Create user — `POST /api/users`
+# 📷 Screenshots
 
-Creates a user and generates a UUID. Returns `201 Created`.
+## 📁 Project Structure
 
-![Create user](docs/screenshots/02-create-user.png)
+![Project Structure](screenshots/01-project-structure.png)
 
-### 2. Get all users — `GET /api/users`
+---
 
-Returns all users currently in the in-memory store with `200 OK`.
+## 📝 Register API
 
-![Get all users](docs/screenshots/03-get-all-users.png)
+![Register](screenshots/02-register.png)
 
-### 3. Get user by ID — `GET /api/users/{id}`
+---
 
-Returns one user identified by UUID with `200 OK`.
+## 🔑 Login API
 
-![Get user by ID](docs/screenshots/04-get-user-by-id.png)
+![Login](screenshots/03-login.png)
 
-### 4. Update user — `PUT /api/users/{id}`
+---
 
-Updates the user's name, email, and age. Returns `200 OK`.
+## 🎫 JWT Token
 
-![Update user](docs/screenshots/05-update-user.png)
+![JWT](screenshots/04-jwt-token.png)
 
-### 5. Delete user — `DELETE /api/users/{id}`
+---
 
-Deletes the requested user. Returns `204 No Content`.
+## 🔒 Protected API (Without Token)
 
-![Delete user](docs/screenshots/06-delete-user.png)
+![403](screenshots/05-without-token.png)
 
-### 6. Invalid input — `400 Bad Request`
+---
 
-An invalid email address is rejected by request validation.
+## ✅ Protected API (With Token)
 
-![Bad request validation](docs/screenshots/07-bad-request.png)
+![Users](screenshots/06-users.png)
 
-### 7. User not found — `404 Not Found`
+---
 
-Requesting a UUID that does not exist returns a clear error message.
+## 🗄 MySQL Database
 
-![User not found](docs/screenshots/08-user-not-found.png)
+![Database](screenshots/07-database.png)
 
-## Author
+---
 
-Udisha Singh
+## 🛡 Flyway Migration
+
+![Flyway](screenshots/08-flyway.png)
+
+---
+
+# 📈 Security Features
+
+- BCrypt Password Encryption
+- JWT Authentication
+- Stateless Authentication
+- Spring Security
+- Protected Endpoints
+- Password Hidden from API Response
+- UUID-based User IDs
+
+---
+
+# 🚀 Future Improvements
+
+- Swagger/OpenAPI Documentation
+- Role Based Authorization (Admin/User)
+- Refresh Token Support
+- Docker Containerization
+- Unit Testing (JUnit & Mockito)
+- CI/CD using GitHub Actions
+
+---
+
+# ▶️ How to Run
+
+### Clone Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+```
+
+---
+
+### Navigate
+
+```bash
+cd basic-rest-api
+```
+
+---
+
+### Configure Database
+
+Update:
+
+```
+application.properties
+```
+
+with your MySQL credentials.
+
+---
+
+### Run Project
+
+```bash
+mvn spring-boot:run
+```
+
+---
+
+### Access APIs
+
+```
+http://localhost:8080
+```
+
+---
+
+# 👩‍💻 Author
+
+**Udisha Singh**
+
+Backend Developer | Java | Spring Boot | MySQL
+
+GitHub: https://github.com/uddishasinghh31
+
+---
+
+# ⭐ If you found this project useful, consider giving it a Star!
