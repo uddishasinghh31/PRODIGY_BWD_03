@@ -211,51 +211,41 @@ Bearer <JWT_TOKEN>
 
 # 📷 Screenshots
 
-## 📁 Project Structure
-
-![Project Structure](screenshots/01-project-structure.png)
-
----
-
-## 📝 Register API
-
-![Register](screenshots/02-register.png)
-
 ---
 
 ## 🔑 Login API
 
-![Login](screenshots/03-login.png)
+![Login](login_user.png)
 
 ---
 
 ## 🎫 JWT Token
 
-![JWT](screenshots/04-jwt-token.png)
+![JWT](pass_security.png)
 
 ---
 
 ## 🔒 Protected API (Without Token)
 
-![403](screenshots/05-without-token.png)
+![403](access_withoutToken.png)
 
 ---
 
 ## ✅ Protected API (With Token)
 
-![Users](screenshots/06-users.png)
+![Users](access_withoutToken.png)
 
 ---
 
 ## 🗄 MySQL Database
 
-![Database](screenshots/07-database.png)
+![Database](sql_updated_pass.png)
 
 ---
 
 ## 🛡 Flyway Migration
 
-![Flyway](screenshots/08-flyway.png)
+![Flyway](flyway_schema.png)
 
 ---
 
