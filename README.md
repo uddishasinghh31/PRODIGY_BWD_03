@@ -227,7 +227,7 @@ Bearer <JWT_TOKEN>
 
 ## 🔒 Protected API (Without Token)
 <p align="center">
-<img src="access_withoutToken.png" width="200"/>
+<img src="./access_withoutToken.png" width="400">
 </p>
 
 
@@ -235,7 +235,7 @@ Bearer <JWT_TOKEN>
 
 ## ✅ Protected API (With Token)
 
-![Users](access_withoutToken.png)
+![Users](access_withToken.png)
 
 ---
 
