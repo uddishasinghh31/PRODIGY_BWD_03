@@ -226,8 +226,10 @@ Bearer <JWT_TOKEN>
 ---
 
 ## 🔒 Protected API (Without Token)
+<p align="center">
+<img src="access_withoutToken.png" width="200"/>
+</p>
 
-![403](access_withoutToken.png)
 
 ---
 
