@@ -202,6 +202,90 @@ basic-rest-api
 | DELETE | `/api/users/{id}` | Delete User |
 
 ---
+# 📸 Project Screenshots
+
+
+## 👤 User Registration
+
+Successful user registration using the authentication API.
+
+<p align="center">
+  <img src="docs/screenshots/register-user.png" width="700" alt="User Registration"/>
+</p>
+
+---
+
+## 🔑 User Login
+
+User login endpoint generating a valid JWT access token.
+
+<p align="center">
+  <img src="docs/screenshots/login_user.png" width="400" alt="User Login"/>
+</p>
+
+---
+
+## 🔐 JWT Authentication Filter
+
+Extracts the JWT from the Authorization header, validates the token, loads authenticated user details, and securely establishes the user's authentication context before allowing access to protected APIs.
+
+<p align="center">
+  <img width="400" alt="Screenshot 2026-07-27 004647" src="https://github.com/user-attachments/assets/02746a0f-0b5a-4fd1-a8ba-a63d7e0f55af" />
+
+</p>
+
+---
+
+## 📬 Protected API Access
+
+Accessing secured endpoints by passing the JWT token in the Authorization header.
+
+<p align="center">
+  <img src="docs/screenshots/access_withToken.png" width="400" alt="Protected API"/>
+</p>
+
+---
+
+## 🗄️ MySQL Database
+
+User records stored permanently in the MySQL database with encrypted passwords.
+
+<p align="center">
+  <img src="docs/screenshots/sql_updated_pass.png" width="400" alt="MySQL Database"/>
+</p>
+
+---
+
+## 🔒 BCrypt Password Encryption
+
+Passwords are securely stored in hashed format using BCrypt instead of plain text.
+
+<p align="center">
+<img width="400"  alt="Screenshot 2026-07-27 002914" src="https://github.com/user-attachments/assets/16e738c3-a716-41b8-a35f-2f2e21f87cbf" />
+</p>
+---
+
+## 🔄 Flyway Migration
+
+Flyway automatically creates and manages database schema during application startup.
+
+<p align="center">
+  <img src="docs/screenshots/flyway_schema.png" width="700" alt="Flyway Migration"/>
+</p>
+
+---
+
+
+## ⚙️ Spring Security Configuration
+
+Spring Security protecting all secured endpoints with JWT authentication.
+
+<p align="center">
+<img width="400"  alt="image" src="https://github.com/user-attachments/assets/51612f38-4f91-4bc3-9e18-1586f9ba90d4" />
+
+</p>
+
+---
 
 # 🧪 Sample API Requests
 
