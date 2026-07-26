@@ -203,16 +203,6 @@ basic-rest-api
 
 ---
 # 📸 Project Screenshots
-
-
-## 👤 User Registration
-
-Successful user registration using the authentication API.
-
-<p align="center">
-  <img src="docs/screenshots/register-user.png" width="700" alt="User Registration"/>
-</p>
-
 ---
 
 ## 🔑 User Login
